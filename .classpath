@@ -23,22 +23,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="vendor/jar/commons-cli-1.4.jar"/>
-	<classpathentry kind="lib" path="vendor/jar/commons-codec-1.13.jar"/>
-	<classpathentry kind="lib" path="vendor/jar/gson-2.8.2.jar"/>
-	<classpathentry kind="lib" path="vendor/jar/httpclient5-5.0.3.jar"/>
-	<classpathentry kind="lib" path="vendor/jar/httpclient5-cache-5.0.3.jar"/>
-	<classpathentry kind="lib" path="vendor/jar/httpclient5-fluent-5.0.3.jar"/>
-	<classpathentry kind="lib" path="vendor/jar/httpclient5-testing-5.0.3.jar"/>
-	<classpathentry kind="lib" path="vendor/jar/httpclient5-win-5.0.3.jar"/>
-	<classpathentry kind="lib" path="vendor/jar/httpcore5-5.0.2.jar"/>
-	<classpathentry kind="lib" path="vendor/jar/httpcore5-h2-5.0.2.jar"/>
-	<classpathentry kind="lib" path="vendor/jar/httpcore5-reactive-5.0.2.jar"/>
-	<classpathentry kind="lib" path="vendor/jar/httpcore5-testing-5.0.2.jar"/>
-	<classpathentry kind="lib" path="vendor/jar/jna-5.2.0.jar"/>
-	<classpathentry kind="lib" path="vendor/jar/jna-platform-5.2.0.jar"/>
-	<classpathentry kind="lib" path="vendor/jar/reactive-streams-1.0.2.jar"/>
-	<classpathentry kind="lib" path="vendor/jar/rxjava-2.2.8.jar"/>
-	<classpathentry kind="lib" path="vendor/jar/slf4j-api-1.7.25.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
