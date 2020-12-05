@@ -24,7 +24,7 @@ public class Datamake {
 	final private int page = 1;
 	final private int perpage = 50;
 
-	public Users[] getUsers(String path) {
+	public Users[] getUsers(int ay, int am, int ad, String path) {
 		Gson gson = new Gson();
 
 		try {
@@ -33,7 +33,7 @@ public class Datamake {
 			Users[] userarray = gson.fromJson(reader, Users[].class);
 
 			for (int i = 0; i < userarray.length; i++) {
-				userarray[i] = calculateUser(userarray[i]);
+				userarray[i] = calculateUser(ay, am, ad, userarray[i]);
 			}
 
 			return userarray;
@@ -44,12 +44,12 @@ public class Datamake {
 		}
 	}
 
-	public Users calculateUser(Users user) {
+	public Users calculateUser(int ay, int am, int ad, Users user) {
 		double points = 0;
 		GetRequests gr = new GetRequests();
 		Calculate calc = new Calculate();
 
-		List<AthleteActivities> List = gr.getAthleteActivities(calc.getBefore(), calc.getAfter(), this.page,
+		List<AthleteActivities> List = gr.getAthleteActivities(calc.getBefore(), calc.getAfter(ay, am, ad), this.page,
 				this.perpage, user.getAccess_token());
 
 		for (AthleteActivities temp : List) {
@@ -61,17 +61,17 @@ public class Datamake {
 
 	public void writeJson(Users[] users, String path) {
 		ExclusionStrategy strategy = new ExclusionStrategy() {
-		    @Override
-		    public boolean shouldSkipClass(Class<?> clazz) {
-		        return false;
-		    }
+			@Override
+			public boolean shouldSkipClass(Class<?> clazz) {
+				return false;
+			}
 
-		    @Override
-		    public boolean shouldSkipField(FieldAttributes field) {
-		        return field.getAnnotation(Exclude.class) != null;
-		    }
+			@Override
+			public boolean shouldSkipField(FieldAttributes field) {
+				return field.getAnnotation(Exclude.class) != null;
+			}
 		};
-		
+
 		Gson gson = new GsonBuilder().addSerializationExclusionStrategy(strategy).create();
 		String commentString = gson.toJson(users);
 
@@ -85,11 +85,10 @@ public class Datamake {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
+
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target(ElementType.FIELD)
-	public @interface Exclude {}
-	
+	public @interface Exclude {
+	}
+
 }

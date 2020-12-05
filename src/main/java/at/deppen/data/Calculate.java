@@ -64,8 +64,8 @@ public class Calculate {
 	}
 	
 
-	public long getAfter() {
-		ZonedDateTime before = ZonedDateTime.of(2020, 1, 1, 0, 0, 0, 0, ZoneOffset.UTC);
+	public long getAfter(int ay, int am, int ad) {
+		ZonedDateTime before = ZonedDateTime.of(ay, am, ad, 0, 0, 0, 0, ZoneOffset.UTC);
 		return before.toEpochSecond();
 	}
 
