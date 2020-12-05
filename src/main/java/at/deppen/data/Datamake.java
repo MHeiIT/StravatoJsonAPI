@@ -18,6 +18,7 @@ import com.google.gson.GsonBuilder;
 
 import at.deppn.dao.GetRequests;
 import at.deppn.types.AthleteActivities;
+import at.deppn.users.SmallDateScore;
 import at.deppn.users.Users;
 
 public class Datamake {
@@ -71,9 +72,10 @@ public class Datamake {
 				return field.getAnnotation(Exclude.class) != null;
 			}
 		};
+		SmallDateScore sds = new SmallDateScore(users);
 
 		Gson gson = new GsonBuilder().addSerializationExclusionStrategy(strategy).create();
-		String commentString = gson.toJson(users);
+		String commentString = gson.toJson(sds);
 
 		try {
 			FileWriter myWriter = new FileWriter(path);
