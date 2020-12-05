@@ -2,7 +2,7 @@ package at.deppn.users;
 
 import com.google.gson.annotations.SerializedName;
 
-import at.deppen.data.Data.Exclude;
+import at.deppen.data.Datamake.Exclude;
 import at.deppn.dao.PostRequests;
 
 public class Users {

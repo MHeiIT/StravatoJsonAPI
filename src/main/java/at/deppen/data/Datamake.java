@@ -20,7 +20,7 @@ import at.deppn.dao.GetRequests;
 import at.deppn.types.AthleteActivities;
 import at.deppn.users.Users;
 
-public class Data {
+public class Datamake {
 	final private int page = 1;
 	final private int perpage = 50;
 
