@@ -1,5 +1,6 @@
 package at.deppen.data;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
@@ -56,7 +57,7 @@ public class Datamake {
 		for (AthleteActivities temp : List) {
 			points += calc.getPoints(temp);
 		}
-		user.setPoints(points);
+		user.setPoints(Math.round(points* 100.0)/100.0);
 		return user;
 	}
 
@@ -73,10 +74,31 @@ public class Datamake {
 			}
 		};
 		SmallDateScore sds = new SmallDateScore(users);
-
+		Gson gson1 = new Gson();
 		Gson gson = new GsonBuilder().addSerializationExclusionStrategy(strategy).create();
-		String commentString = gson.toJson(sds);
+		String commentString = "["+gson.toJson(sds)+"]";
+		File tempFile = new File(path);
+		if (tempFile.exists()) {
+			try {
+				Reader reader = Files.newBufferedReader(Paths.get(path));
 
+				SmallDateScore[] userarray = gson1.fromJson(reader, SmallDateScore[].class);
+				SmallDateScore[] temp = new SmallDateScore[userarray.length+1];
+				temp[0] = sds;
+				for (int i = 1; i<userarray.length+1;i++) {
+					temp[i] = userarray[i-1];
+				}
+				
+				commentString = gson.toJson(temp);
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		
+		
 		try {
 			FileWriter myWriter = new FileWriter(path);
 			myWriter.write(commentString);
