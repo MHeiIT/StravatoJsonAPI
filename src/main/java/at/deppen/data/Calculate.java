@@ -10,18 +10,19 @@ public class Calculate {
 	final double runPerKm = 9.15274322;
 	final double swimPerKm = 100;
 	final double elevationPerM = 0.125;
+	final double lukiFactor = 25;
 
 	public double getPoints(AthleteActivities aa) {
 		aa.getType();
 		switch (aa.getType()) {
 		case "Ride":
-			return calculateRide(aa.getDistance(), aa.getElev_high());
+			return calculateRide(aa.getDistance(), aa.getElev_high(), aa.getMoving_time());
 			
 		case "Workout":
-			return calculateRide(aa.getDistance(), aa.getElev_high());
+			return calculateRide(aa.getDistance(), aa.getElev_high(), aa.getMoving_time());
 			
 		case "VirtualRide":
-			return calculateRide(aa.getDistance(), aa.getElev_high());
+			return calculateRide(aa.getDistance(), aa.getElev_high(), aa.getMoving_time());
 
 		case "Run":
 			return calculateRun(aa.getDistance(), aa.getTotal_elevation_gain());
@@ -39,11 +40,18 @@ public class Calculate {
 		}
 	}
 
-	private double calculateRide(double distance, double elev_high) {
-		double distanceinkm = (distance / 1000);
-		double distancepoints = distanceinkm * ridePerKm;
-		double elevationpoints = calulateElevation(elev_high);
-		return distancepoints + elevationpoints;
+	private double calculateRide(double distance, double elev_high, double moving_time) {
+		if (distance == 0) {
+			double minute = moving_time/60;
+			double hour = minute/60;
+			double distancepoints = hour *lukiFactor*ridePerKm;
+			return distancepoints;
+		} else {
+			double distanceinkm = (distance / 1000);
+			double distancepoints = distanceinkm * ridePerKm;
+			double elevationpoints = calulateElevation(elev_high);
+			return distancepoints + elevationpoints;
+		}
 	}
 
 	private double calculateRun(double distance, double elev_high) {
