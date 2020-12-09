@@ -33,6 +33,9 @@ public class Calculate {
 		case "Walk":
 			return calulateElevation(aa.getTotal_elevation_gain());
 			
+		case "Hike":
+			return calulateElevation(aa.getTotal_elevation_gain());
+			
 		default:
 			System.out.println(aa.getType());
 			return 0;
