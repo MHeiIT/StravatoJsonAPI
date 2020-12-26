@@ -1,4 +1,4 @@
-package at.deppen.data;
+package at.deppn.data;
 
 import java.io.File;
 import java.io.FileWriter;

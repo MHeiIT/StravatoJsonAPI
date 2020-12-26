@@ -1,6 +1,6 @@
 package at.deppn;
 
-import at.deppen.data.Datamake;
+import at.deppn.data.Datamake;
 import at.deppn.users.Users;
 
 /**

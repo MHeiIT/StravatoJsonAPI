@@ -2,8 +2,8 @@ package at.deppn.users;
 
 import com.google.gson.annotations.SerializedName;
 
-import at.deppen.data.Datamake.Exclude;
 import at.deppn.dao.PostRequests;
+import at.deppn.data.Datamake.Exclude;
 
 public class Users {
 	@SerializedName("name")
