@@ -16,13 +16,13 @@ public class Calculate {
 		aa.getType();
 		switch (aa.getType()) {
 		case "Ride":
-			return calculateRide(aa.getDistance(), aa.getElev_high(), aa.getMoving_time());
+			return calculateRide(aa.getDistance(), aa.getTotal_elevation_gain(), aa.getMoving_time());
 			
 		case "Workout":
-			return calculateRide(aa.getDistance(), aa.getElev_high(), aa.getMoving_time());
+			return calculateRide(aa.getDistance(), aa.getTotal_elevation_gain(), aa.getMoving_time());
 			
 		case "VirtualRide":
-			return calculateRide(aa.getDistance(), aa.getElev_high(), aa.getMoving_time());
+			return calculateRide(aa.getDistance(), aa.getTotal_elevation_gain(), aa.getMoving_time());
 
 		case "Run":
 			return calculateRun(aa.getDistance(), aa.getTotal_elevation_gain());
