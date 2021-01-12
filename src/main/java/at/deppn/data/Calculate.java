@@ -9,7 +9,7 @@ public class Calculate {
 	final double ridePerKm = 2.1426273;
 	final double runPerKm = 9.15274322;
 	final double swimPerKm = 100;
-	final double elevationPerM = 0.125;
+	final double elevationPerM = 0.12; //changed from 0.125 to 0.12
 	final double lukiFactor = 25;
 
 	public double getPoints(AthleteActivities aa) {
